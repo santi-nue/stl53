@@ -33,7 +33,6 @@ RUN rm -rf /var/lib/apt/lists/*
 # Install .NET Core SDK
 ENV DOTNET_SDK_VERSION 8.0.100
 
-
 RUN curl -SL --output dotnet.tar.gz https://download.visualstudio.microsoft.com/download/pr/5226a5fa-8c0b-474f-b79a-8984ad7c5beb/3113ccbf789c9fd29972835f0f334b7a/dotnet-sdk-8.0.100-linux-x64.tar.gz \
     && dotnet_sha512='13905ea20191e70baeba50b0e9bbe5f752a7c34587878ee104744f9fb453bfe439994d38969722bdae7f60ee047d75dda8636f3ab62659450e9cd4024f38b2a5' \
     && echo "$dotnet_sha512 dotnet.tar.gz" | sha512sum -c - \
@@ -89,7 +88,7 @@ ENV PATH="${PATH}:${HOME}/.dotnet/tools"
 RUN echo "$PATH"
 
 # Install kernel specs
-RUN dotnet try jupyter install
+# >>>>>>>>>>>>>> RUN dotnet try jupyter install
 
 ENV ASPNETCORE_URLS=http://+:5000
 
