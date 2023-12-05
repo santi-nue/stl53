@@ -18,11 +18,15 @@ RUN apt-get install -y curl
 RUN apt-get install -y --no-install-recommends \
         libc6 \
         libgcc1 \
+        libgcc-s1 \
         libgssapi-krb5-2 \
-        libicu60 \
-        libssl1.1 \
+        libicu70 \
+        liblttng-ust1 \
+        libssl3 \
         libstdc++6 \
-        zlib1g 
+        libunwind8 \
+        zlib1g
+
 
 RUN rm -rf /var/lib/apt/lists/*
 
