@@ -65,33 +65,27 @@ COPY . ${HOME}/notebooks/
 RUN chown -R ${NB_UID} ${HOME}
 USER ${USER}
 
+
+
 #Install nteract 
 RUN pip install nteract_on_jupyter
 
-RUN pip install jupyter-server-proxy 
-
-RUN pip install nbserverproxy
-
-# Install lastest build from master branch of Microsoft.DotNet.Interactive from myget
-# RUN dotnet tool install -g Microsoft.dotnet-interactive --add-source "https://dotnet.myget.org/F/dotnet-try/api/v3/index.json"
-
-#latest stable from nuget.org
-#RUN dotnet tool install -g Microsoft.dotnet-interactive --add-source "https://api.nuget.org/v3/index.json"
-
-# Install Microsoft.DotNet.Interactive
-# RUN dotnet tool install --global Microsoft.dotnet-try --version 1.0.20474.1
-RUN dotnet tool install -g Microsoft.dotnet-interactive
-
-
-# RUN dotnet tool install -g dotnet-try 
-#--add-source "https://dotnet.myget.org/F/dotnet-try/api/v3/index.json"
+# Install lastest build from main branch of Microsoft.DotNet.Interactive
+RUN dotnet tool install -g Microsoft.dotnet-interactive --version 1.0.456201
 
 ENV PATH="${PATH}:${HOME}/.dotnet/tools"
-RUN echo "$PATH"
+#RUN echo "$PATH"
+
+#RUN dotnet --list-sdks
 
 # Install kernel specs
-# >>>>>>>>>>>>>> RUN dotnet try jupyter install
 RUN dotnet interactive jupyter install
+
+
+
+
+
+
 
 ENV ASPNETCORE_URLS=http://+:5000
 
