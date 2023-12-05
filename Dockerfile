@@ -80,7 +80,9 @@ RUN pip install nbserverproxy
 #RUN dotnet tool install -g Microsoft.dotnet-interactive --add-source "https://api.nuget.org/v3/index.json"
 
 # Install Microsoft.DotNet.Interactive
-RUN dotnet tool install -g dotnet-try 
+RUN dotnet tool install --global Microsoft.dotnet-try --version 1.0.20474.1
+
+# RUN dotnet tool install -g dotnet-try 
 #--add-source "https://dotnet.myget.org/F/dotnet-try/api/v3/index.json"
 
 ENV PATH="${PATH}:${HOME}/.dotnet/tools"
